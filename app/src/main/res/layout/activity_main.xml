@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ProgressBar
+        android:visibility="gone"
+        android:id="@+id/progressBar"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:visibility="gone"
+        android:background="@color/cardview_shadow_end_color"
+        android:id="@+id/rvHoldingItems"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/clBottomSheet"
+        android:layout_margin="15dp"
+        tools:itemCount="5"
+        tools:listitem="@layout/row_item_holding_item"
+        />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clBottomSheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="15dp"
+        android:padding="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="gone"
+        android:background="@color/design_default_color_background"
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clThreeRows"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/view"
+            android:paddingVertical="7dp"
+            android:visibility="gone"
+            >
+            <TextView
+                android:id="@+id/tvCurrent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Current Value*"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:textSize="20sp"
+                />
+            <TextView
+                android:id="@+id/tvCurrentValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Rs.300"
+                android:textSize="20sp"
+                />
+
+            <TextView
+                android:id="@+id/tvTotalInv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total Investment*"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvCurrent"
+                android:textSize="20sp"
+                android:layout_marginVertical="4dp"
+                />
+            <TextView
+                android:id="@+id/tvTotalInvValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvCurrent"
+                tools:text="Rs.400"
+                android:layout_marginVertical="4dp"
+                android:textSize="20sp"
+                />
+
+            <TextView
+                android:id="@+id/tvTodaysPNL"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Todays Profit And Loss*"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textSize="20sp"
+                app:layout_constraintTop_toBottomOf="@id/tvTotalInv"
+                />
+            <TextView
+                android:id="@+id/tvTodaysPNLValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvTotalInv"
+                tools:text="Rs.500"
+                android:textColor="#17DE17"
+                android:textSize="20sp"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginVertical="8dp"
+            android:background="@color/cardview_dark_background"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/tvProfitAndLoss"/>
+        <TextView
+            android:id="@+id/tvProfitAndLoss"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Profit And Loss *"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+        <TextView
+            android:id="@+id/tvArrow"
+            android:layout_width="15dp"
+            android:layout_height="25dp"
+            app:layout_constraintStart_toEndOf="@id/tvProfitAndLoss"
+            app:layout_constraintTop_toBottomOf="@id/view"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:textSize="20sp"
+            android:text="▲"
+            />
+        <TextView
+            android:id="@+id/tvProfitAndLossValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view"
+            android:textSize="20sp"
+            tools:text="Rs.200"
+            android:textColor="#17DE17"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
